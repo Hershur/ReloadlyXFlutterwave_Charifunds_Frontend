@@ -1,0 +1,147 @@
+.page-outline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    & > div {
+        padding: 1.5rem 5rem 1.5rem 1.5rem;
+    }
+}
+
+.page-outline-left {
+    background: #f5f5f5;
+}
+
+.page-outline-right {
+    background: #EDC974;
+}
+
+.page-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+
+    & span {
+        padding: 1rem;
+    }
+}
+
+.page-outline-details-sub {
+    color: #2f5349;
+    margin-bottom: 2rem;
+}
+
+.page-outline-details {
+    font-weight: 800;
+    font-size: 36px;
+    color: #2f5349;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+}
+
+.page-outline-image {
+    background-image: url('https://i.ibb.co/WBzxtDF/Image-1.png');
+    width: 105%;
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    margin-left: -1.5rem;
+    margin-top: 1rem;
+}
+
+.causes-title {
+    color: #2f5349;
+    font-weight: 700;
+    font-size: 26px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.causes-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    text-align: center;
+    height: 20rem;
+    margin: 2rem;
+    position: relative;
+}
+
+.center-box {
+    align-self: center;
+}
+
+.causes-header {
+    color: #2f5349;
+}
+
+.image-icon {
+    background: #EDC974;
+    padding: 5px;
+}
+
+.path-svg {
+    position: absolute;
+    left: 12rem;
+    top: 1rem;
+}
+
+.path-svg2 {
+    position: absolute;
+    left: 33rem;
+    top: 1rem;
+}
+
+.path-svg3 {
+    position: absolute;
+    right: 12rem;
+    top: 1rem;
+}
+
+.donors-companies {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.donors-companies-image {
+    background-image: url('https://i.ibb.co/wLrq0h6/Image-2.png');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+}
+
+.donor-counts-box {
+    background: #2F5349;
+}
+
+.donor-counts {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.donations {
+    width: 90%;
+    margin: auto;
+}
+
+.img-health {
+    background-image: url('https://i.ibb.co/5h3dwgy/Intersection-6.png');
+} 
+
+.img-health, .img-health2, .img-health3 {
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+}
+
+.img-health2 {
+    background-image: url('https://i.ibb.co/vHcBnN3/Intersection-13.png');
+}
+
+.img-health3 {
+    background-image: url('https://i.ibb.co/xmhTMRv/Intersection-12.png');
+}
