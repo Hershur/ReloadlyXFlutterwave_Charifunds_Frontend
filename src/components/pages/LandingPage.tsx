@@ -1,11 +1,13 @@
+import { Divider } from "@mui/material";
 import LandingPageTemplate from "../templates/LandingPageTemplate";
 import CausesDonation from "../UI/organisms/CausesDonation";
 import Donations from "../UI/organisms/Donations";
 import DonorCompanies from "../UI/organisms/DonorCompanies";
+import Footer from "../UI/organisms/Footer";
 import Outline from "../UI/organisms/Outline";
-import Register from "../UI/organisms/Register";
+import RegisterNGO from "../UI/organisms/RegisterNGO";
+import RegisterVolunteer from "../UI/organisms/RegisterVolunteer";
 import Testimonials from "../UI/organisms/Testimonials";
-import Volunteer from "../UI/organisms/Volunteer";
 
 const LandingPage = (): JSX.Element => {
     return (
@@ -13,10 +15,12 @@ const LandingPage = (): JSX.Element => {
             outlineBox={<Outline />}
             causesDonationBox= { <CausesDonation /> }
             donorCompaniesBox= { <DonorCompanies /> }
-            volunteerBox= { <Volunteer /> }
             donationsBox= { <Donations /> }
             testimonialsBox= { <Testimonials /> }
-            registerBox= { <Register /> }
+            registerVolBox= { <RegisterVolunteer /> }
+            registerNGOBox= { <RegisterNGO /> }
+            divider = { <Divider sx={{height: '3rem'}} /> }
+            footer = { <Footer /> }
         />
     )
 };

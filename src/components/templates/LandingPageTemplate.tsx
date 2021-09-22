@@ -1,11 +1,15 @@
+import { ReactElement } from "react";
+
 type OutlineProp = {
     outlineBox: JSX.Element;
     causesDonationBox: JSX.Element;
     donorCompaniesBox: JSX.Element;
     donationsBox: JSX.Element;
-    volunteerBox: JSX.Element;
     testimonialsBox: JSX.Element;
-    registerBox: JSX.Element;
+    registerVolBox: JSX.Element;
+    registerNGOBox: JSX.Element;
+    footer: JSX.Element;
+    divider: ReactElement<any, any>;
 }
 
 const LandingPageTemplate = ({
@@ -14,8 +18,10 @@ const LandingPageTemplate = ({
         donorCompaniesBox, 
         donationsBox,
         testimonialsBox,
-        volunteerBox,
-        registerBox
+        registerVolBox,
+        registerNGOBox,
+        divider,
+        footer
     }: OutlineProp): JSX.Element => {
 
     return (
@@ -24,9 +30,11 @@ const LandingPageTemplate = ({
             <>{ causesDonationBox }</>
             <>{ donorCompaniesBox }</>
             <>{ donationsBox }</>
-            <>{ volunteerBox }</>
+            <>{ divider }</>
+            <>{ registerVolBox }</>
             <>{ testimonialsBox }</>
-            <>{ registerBox }</>
+            <>{ registerNGOBox }</>
+            <>{ footer }</>
         </>
            
     ); 

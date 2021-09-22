@@ -30,10 +30,10 @@ const Donations = (): JSX.Element => {
                         <div style={{color: '#2F5349'}}>Healthy Foods</div>
                     </div>
                     <div style={{display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem'}}>
-                        <div style={{color: 'grey'}}>Hope for all NGO</div>
-                        <div style={{color: 'grey'}}>Nigeria</div>
+                        <div style={{color: '#858585'}}>Hope for all NGO</div>
+                        <div style={{color: '#858585'}}>Nigeria</div>
                     </div>
-                    <Button text="View Foundation" textStyle={{width: '100%', background: '#fff', fontSize: '16px', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
+                    <Button text="View Foundation" textStyle={{width: '100%', background: '#fff', fontSize: '18px', fontWeight: '800', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
                 </div>
                 <div>
                     <div style={{gap: '2rem'}}>  
@@ -44,10 +44,10 @@ const Donations = (): JSX.Element => {
                         <div style={{color: '#2F5349'}}>Education</div>
                     </div>
                     <div style={{display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem'}}>
-                        <div style={{color: 'grey'}}>Hope for all NGO</div>
-                        <div style={{color: 'grey'}}>Nigeria</div>
+                        <div style={{color: '#858585'}}>Hope for all NGO</div>
+                        <div style={{color: '#858585'}}>Nigeria</div>
                     </div>
-                    <Button text="View Foundation" textStyle={{width: '100%', background: '#fff', fontSize: '16px', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
+                    <Button text="View Foundation" textStyle={{width: '100%', background: '#fff', fontSize: '18px', fontWeight: '800', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
                 </div>
                 <div>
                     <div style={{gap: '2rem'}}>  
@@ -55,13 +55,13 @@ const Donations = (): JSX.Element => {
                     </div>
                     <div style={{display: 'flex', justifyContent: 'space-between', paddingBlock: '0.5rem'}}>
                         <div style={{color: '#2F5349', fontWeight: 700}}>Operation Feed the nation</div>
-                        <div style={{color: '#2F5349'}}>Healthy Foods</div>
+                        <div style={{color: '#2F5349'}}>Medicals</div>
                     </div>
                     <div style={{display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem'}}>
-                        <div style={{color: 'grey'}}>Medicals</div>
-                        <div style={{color: 'grey'}}>Nigeria</div>
+                        <div style={{color: '#858585'}}>Hope for all NGO</div>
+                        <div style={{color: '#858585'}}>Nigeria</div>
                     </div>
-                    <Button text="View Foundation" textStyle={{width: '100%', background: '#fff', fontSize: '16px', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
+                    <Button text="View Foundation" textStyle={{width: '100%', background: '#fff', fontSize: '18px', fontWeight: '800', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
                 </div>
             </div>
         </div>

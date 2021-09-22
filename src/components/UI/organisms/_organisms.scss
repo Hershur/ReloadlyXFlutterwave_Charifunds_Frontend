@@ -1,3 +1,15 @@
+.main-color {
+    color: #2f5349 !important;
+}
+
+.second-color-background {
+    background-color: #EDC974 !important;
+}
+
+.bold {
+    font-weight: 700 !important;
+}
+
 .page-outline {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -82,20 +94,18 @@
 
 .path-svg {
     position: absolute;
-    left: 12rem;
-    top: 1rem;
+    transform: translate(30px, 15px);
 }
 
 .path-svg2 {
     position: absolute;
-    left: 33rem;
-    top: 1rem;
+    transform: translate(40px, -40px);
 }
 
 .path-svg3 {
     position: absolute;
-    right: 12rem;
-    top: 1rem;
+    transform: translate(30px, 15px);
+
 }
 
 .donors-companies {
@@ -123,7 +133,7 @@
     padding-top: 2rem;
 }
 
-.donations {
+.donations, .volunteer, .testimonials, .footer  {
     width: 90%;
     margin: auto;
 }
@@ -145,3 +155,107 @@
 .img-health3 {
     background-image: url('https://i.ibb.co/xmhTMRv/Intersection-12.png');
 }
+
+.register-box {
+    padding: 2rem;
+    margin-bottom: 3rem;
+    background: #f5f5f5;
+}
+
+.register-form {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr 2fr;
+    gap: 2rem;
+    padding-block: 3.5rem;
+}
+
+.round-icon {
+    color: #ffffff;
+    background: #2F5349;
+    border-radius: 50%;
+    font-size: 15px !important;
+    padding: 5px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.social-media div{
+    padding-block: 1rem;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.register-ngo {
+    display: grid;
+    padding: 0rem 5rem;
+    grid-template-columns: 2.5fr 1fr;
+    align-items: center;
+}
+
+.volunteer-input {
+    padding: 0.8rem 5rem 0.7rem 0.5rem;
+    border: 0.5px solid #2F5349;
+}
+
+.register-ngo-text {
+    padding: 3rem 5rem;
+}
+
+.register-ngo-text-sub {
+    width: 60%;
+    padding-block: 1rem;
+}
+
+.register-ngo-img {
+    background-image: url('https://svgshare.com/i/aRV.svg');
+    height: 150px;
+    background-repeat: no-repeat;
+}
+
+
+.testimonials-box {
+    background: #f5f5f5;
+}
+
+.testimonial-img {
+    background-image: url('https://i.ibb.co/Gxw88vZ/Intersection-11.png');
+    height: 300px;
+    width: 300px;
+    background-position: center;
+    background-size: cover;
+    transform: translate(-2rem, -1.7rem);
+}
+
+.testimonial-img-box {
+    border: #EDC974 solid 2px;
+    margin: 2rem;
+    width: 300px;
+}
+
+.testimonial-grid {
+    padding-bottom: 3rem;
+}
+
+.testimonial-name {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
