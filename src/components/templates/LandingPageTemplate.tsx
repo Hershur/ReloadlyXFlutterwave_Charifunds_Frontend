@@ -10,7 +10,7 @@ type OutlineProp = {
     registerNGOBox: JSX.Element;
     footer: JSX.Element;
     divider: ReactElement<any, any>;
-}
+};
 
 const LandingPageTemplate = ({
         outlineBox, 

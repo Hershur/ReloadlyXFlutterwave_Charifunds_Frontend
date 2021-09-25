@@ -1,0 +1,9 @@
+.page-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+
+    & span {
+        padding: 1rem;
+    }
+}

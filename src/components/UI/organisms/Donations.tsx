@@ -1,6 +1,7 @@
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import Button from '../atoms/Button';
+import { Link } from 'react-router-dom';
 
 const Donations = (): JSX.Element => {
     return (
@@ -33,7 +34,9 @@ const Donations = (): JSX.Element => {
                         <div style={{color: '#858585'}}>Hope for all NGO</div>
                         <div style={{color: '#858585'}}>Nigeria</div>
                     </div>
-                    <Button text="View Foundation" textStyle={{width: '100%', background: '#fff', fontSize: '18px', fontWeight: '800', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
+                    <Link to="/foundation">
+                        <Button text="View Foundation" textStyle={{width: '100%', cursor: 'pointer', background: '#fff', fontSize: '18px', fontWeight: '800', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
+                    </Link>
                 </div>
                 <div>
                     <div style={{gap: '2rem'}}>  
@@ -47,7 +50,9 @@ const Donations = (): JSX.Element => {
                         <div style={{color: '#858585'}}>Hope for all NGO</div>
                         <div style={{color: '#858585'}}>Nigeria</div>
                     </div>
-                    <Button text="View Foundation" textStyle={{width: '100%', background: '#fff', fontSize: '18px', fontWeight: '800', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
+                    <Link to="/foundation">
+                        <Button text="View Foundation" textStyle={{width: '100%', cursor: 'pointer', background: '#fff', fontSize: '18px', fontWeight: '800', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
+                    </Link>
                 </div>
                 <div>
                     <div style={{gap: '2rem'}}>  
@@ -61,7 +66,9 @@ const Donations = (): JSX.Element => {
                         <div style={{color: '#858585'}}>Hope for all NGO</div>
                         <div style={{color: '#858585'}}>Nigeria</div>
                     </div>
-                    <Button text="View Foundation" textStyle={{width: '100%', background: '#fff', fontSize: '18px', fontWeight: '800', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
+                    <Link to="/foundation">
+                        <Button text="View Foundation" textStyle={{width: '100%', cursor: 'pointer', background: '#fff', fontSize: '18px', fontWeight: '800', paddingBlock: '1rem', color: '#EDC974', border: '2px solid #EDC974'}} />
+                    </Link>
                 </div>
             </div>
         </div>

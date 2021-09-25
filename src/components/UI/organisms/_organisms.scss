@@ -2,6 +2,11 @@
     color: #2f5349 !important;
 }
 
+.main-color-faint {
+    color: #2f5349 !important;
+    opacity: 0.5 !important;
+}
+
 .second-color-background {
     background-color: #EDC974 !important;
 }
@@ -27,15 +32,6 @@
     background: #EDC974;
 }
 
-.page-nav {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-
-    & span {
-        padding: 1rem;
-    }
-}
 
 .page-outline-details-sub {
     color: #2f5349;
@@ -259,3 +255,57 @@
     justify-content: flex-end;
 }
 
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 3px 6px #00000029;
+    border-bottom: 1px solid #EDC974;
+
+    & div {
+        padding: 1rem 4rem;
+    }
+}
+
+.returning-customer {
+    background: #CAD3D1;
+    border: 0.5px solid #2F5349;
+    padding: 0.7rem;
+    width: 90%;
+    margin-inline: auto;
+    box-sizing: border-box;
+    margin-block: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    border-radius: 5px;
+}
+
+.donation-details-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.donation-details-box {
+    padding: 0.7rem;
+    border: 1px solid #2F5349;
+    border-radius: 5px;
+
+    & div {
+        padding: 3.5px;
+    }
+}
+
+.foundation-description {
+    padding: 1rem;
+}
+
+.foundation-image {
+    background-image: url('https://i.ibb.co/wLrq0h6/Image-2.png');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+}   
+
+.foundation-join-deatils {
+    text-align: center;
+    margin-bottom: 1rem;
+}

@@ -9,3 +9,21 @@ a {
     border: 1px solid #f5f5f5;
     font-family: 'Nunito', sans-serif;
 }
+
+.MuiFormLabel-root {
+    color: #2f5349 !important;
+    font-weight: 500 !important;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked {
+    color: #2f5349 !important;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+    background-color: #2f5349 !important;
+}
+
+.MuiTabs-indicator, .MuiButton-root:hover {
+    background: #EDC974 !important;
+}
+
