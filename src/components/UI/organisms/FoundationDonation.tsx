@@ -1,7 +1,7 @@
 import { OutlinedInput } from "@material-ui/core";
 import { CardGiftcardOutlined, LocalAtmSharp, LocalOfferSharp, LocationOnSharp, VerifiedUser } from "@mui/icons-material";
 import { Backdrop, Box, Button, Fade, FormControl, InputAdornment, Modal, Tab, Tabs, Typography } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { DonationContext } from "../../../contexts/donationContext";
 import ButtonP from "../atoms/Button";
@@ -42,9 +42,6 @@ const FoundationDonation = (): JSX.Element => {
         p: 4,
     };
 
-    useEffect(() => {
-        addDonation({amount: amount, donorName: ''});
-    }, [amount]);
 
     return (
         <div style={{display: 'grid', gap: '5rem', gridTemplateColumns: '1.8fr 1fr', width: '90%', margin: 'auto'}}>
@@ -246,7 +243,7 @@ const FoundationDonation = (): JSX.Element => {
 
                                 <Box sx={{margin: '2rem', display: 'flex', justifyContent: 'center'}}>
                                     <Link to="/donate">
-                                        <Button disabled={amount < 5} variant="contained" sx={{background: '#2F5349', padding: '1rem 5rem'}}>Confirm</Button>
+                                        <Button onClick={()=> addDonation({amount: amount, donorName: ''})} disabled={amount < 5} variant="contained" sx={{background: '#2F5349', padding: '1rem 5rem'}}>Confirm</Button>
                                     </Link>
                                 </Box>
 

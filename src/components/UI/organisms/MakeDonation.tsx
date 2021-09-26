@@ -41,7 +41,7 @@ const MakeDonation = (): JSX.Element => {
     if(successful){
         return <Redirect to="/success" />
     }
-
+    
     console.log(donation)
     return (
         <>
@@ -108,7 +108,7 @@ const MakeDonation = (): JSX.Element => {
                     }, 500);
                 }}
             >
-                {({submitForm, setFieldValue, isSubmitting, values, touched, errors}) => (
+                {({submitForm, setFieldValue, isSubmitting, values, touched, errors, handleChange}) => (
                     <Form key="1">
                         <div style={{display: 'grid', gap: '2rem', gridTemplateColumns: '1.5fr 1fr', width: '90%', margin: 'auto'}}>
 
@@ -138,6 +138,7 @@ const MakeDonation = (): JSX.Element => {
 
                                 <Box sx={{marginBottom: '1.5rem'}}>
                                     <Field
+                                        value={values.country}
                                         component={TextField}
                                         type="text"
                                         name="country"
@@ -186,16 +187,16 @@ const MakeDonation = (): JSX.Element => {
                                         type="text"
                                         name="state"
                                         label="State"
-                                        select
+                                        // select
                                         variant="outlined"
                                         size="small"
-                                    >
-                                        {ranges.map((option) => (
+                                    />
+                                        {/* {ranges.map((option) => (
                                             <MenuItem key={option.value} value={option.value}>
                                                 {option.label}
                                             </MenuItem>
                                         ))}
-                                    </Field>
+                                    </Field> */}
                                 </Box>
 
                                 <Box sx={{marginBottom: '1.5rem', display: 'grid', gap: '1rem', gridTemplateColumns: '1fr 1fr'}}>
