@@ -11,7 +11,7 @@ import TabPanel from "../molecules/TabPanel";
 const amountList: number[] = [5, 10, 50, 100, 200, 500, 1000];
 
 const FoundationDonation = (): JSX.Element => {
-    const { donation, addDonation } = useContext(DonationContext);
+    const { addDonation } = useContext(DonationContext);
     const [value, setValue] = useState(0);
     const [amount, setAmount] = useState<string | number>('');
     const [confirmDonation, setConfirmDonation] = useState(false);
@@ -43,9 +43,8 @@ const FoundationDonation = (): JSX.Element => {
     };
 
     useEffect(() => {
-        console.log("amount",donation);
-        addDonation(+(amount.toString()));
-    })
+        addDonation({amount: amount, donorName: ''});
+    }, [amount]);
 
     return (
         <div style={{display: 'grid', gap: '5rem', gridTemplateColumns: '1.8fr 1fr', width: '90%', margin: 'auto'}}>

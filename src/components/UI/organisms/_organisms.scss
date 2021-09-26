@@ -129,7 +129,7 @@
     padding-top: 2rem;
 }
 
-.donations, .volunteer, .testimonials, .footer  {
+.donations, .volunteer, .testimonials, .footer, .donation-successful  {
     width: 90%;
     margin: auto;
 }
@@ -308,4 +308,21 @@
 .foundation-join-deatils {
     text-align: center;
     margin-bottom: 1rem;
+}
+
+.donation-successful {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2rem;
+}
+
+.regards-note {
+    margin: 2rem 0rem 8rem 0rem;
+}
+
+.thank-you-image {
+    background-image: url('https://svgshare.com/i/aZ7.svg');
+    background-size: cover;
+    background-position: center;
+    height: 450px;
 }

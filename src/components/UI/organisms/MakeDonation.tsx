@@ -11,6 +11,7 @@ import { TextField, Switch } from 'formik-material-ui';
 import * as Yup from 'yup';
 import { useContext, useState } from "react";
 import { DonationContext } from "../../../contexts/donationContext";
+import { Redirect } from "react-router-dom";
 
 
 const ranges = [
@@ -32,10 +33,16 @@ enum PaymentType {
 
 
 const MakeDonation = (): JSX.Element => {
-    const { donation } = useContext(DonationContext);
+    const { donation, addDonation } = useContext(DonationContext);
     const [ showPassword, setShowPassword ] = useState(false);
+    const [ successful, setSuccessful ] = useState(false);
+    const donationValues = Object.values(donation);
 
-    console.log(donation);
+    if(successful){
+        return <Redirect to="/success" />
+    }
+
+    console.log(donation)
     return (
         <>
             <div className="returning-customer">
@@ -90,11 +97,14 @@ const MakeDonation = (): JSX.Element => {
                     // comment: Yup.string()
                     //   .required('Required'),
                 })}
+                
 
                 onSubmit={(values, {setSubmitting}) => {
                     setTimeout(() => {
                         setSubmitting(false);
-                        alert(JSON.stringify(values, null, 2));
+                        addDonation({amount: donationValues[0], donorName: values.firstname})
+                        setSuccessful(true);
+                        // alert(JSON.stringify(values, null, 2));
                     }, 500);
                 }}
             >
@@ -229,7 +239,7 @@ const MakeDonation = (): JSX.Element => {
                             </div>
 
                             <div className="donation-details main-color">
-                                <h2>Your Donation - ${Intl.NumberFormat().format(+donation)}</h2>
+                                <h2>Your Donation - ${Intl.NumberFormat().format(+donationValues[0])}</h2>
                                 <div className="main-color">Donation Details</div>
 
                                 <div className="donation-details-box">
@@ -238,7 +248,7 @@ const MakeDonation = (): JSX.Element => {
                                             Donation Amount -
                                         </div>
                                         <div className="bold">
-                                            ${Intl.NumberFormat().format(+donation)}
+                                            ${Intl.NumberFormat().format(+donationValues[0])}
                                         </div>
                                     </div>
                                     <div className="donation-details-item">

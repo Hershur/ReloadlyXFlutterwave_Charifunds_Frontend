@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.scss';
+import DonationSuccessfulPage from "./components/pages/DonationSuccessfulPage";
 import FoundationPage from './components/pages/FoundationPage';
 import LandingPage from './components/pages/LandingPage';
 import MakeDonationPage from './components/pages/MakeDonationPage';
@@ -26,6 +27,10 @@ function App() {
 
             <Route exact path="/foundation" >
               <FoundationPage />
+            </Route>
+
+            <Route exact path="/success" >
+              <DonationSuccessfulPage />
             </Route>
 
           </Switch>
