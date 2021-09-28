@@ -56,9 +56,9 @@ type IDialogProps = {
 }
 
 const MakeDonation = (): JSX.Element => {
-    const { donation, addDonation } = useContext(DonationContext);
+    const { donation } = useContext(DonationContext);
     const [ showPassword, setShowPassword ] = useState(false);
-    const [ successful, setSuccessful ] = useState(false);
+    const [ successful ] = useState(false);
     const [ dialogProps, setDialogProps] = useState<IDialogProps>({
         open: false,
         title: '',
