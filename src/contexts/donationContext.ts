@@ -1,18 +1,18 @@
 import { createContext } from "react";
 
-export interface IDonationProps {
-    amount?: string | number;
-    donorName?: string;
-}
+export type DonationValue = {
+    amount: string, 
+    donorName: string
+};
 
 export type DonationContextState = {
-    donation: IDonationProps | Object;
-    addDonation: (d: IDonationProps | Object ) => void;
+    donation: DonationValue;
+    addDonation: (d: DonationValue ) => void;
 };
 
 export const contextDefaultValues: DonationContextState = {
     donation: {amount: '', donorName: ''},
-    addDonation: () => {}
+    addDonation: (donation: DonationValue) => {}
 };
 
 

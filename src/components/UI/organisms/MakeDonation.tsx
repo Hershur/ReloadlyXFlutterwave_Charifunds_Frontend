@@ -1,4 +1,17 @@
-import { Box, Backdrop, CircularProgress, IconButton, InputAdornment, Radio, RadioGroup } from "@mui/material";
+import { 
+    Box, 
+    Backdrop, 
+    CircularProgress, 
+    IconButton, 
+    InputAdornment, 
+    Radio, 
+    RadioGroup,
+    Dialog,
+    DialogActions,
+    DialogTitle,
+    DialogContent,
+    DialogContentText 
+} from "@mui/material";
 import { Language, Visibility, VisibilityOff } from '@mui/icons-material';
 import {
     Button,
@@ -9,9 +22,10 @@ import {
 import { Field, Form, Formik } from "formik";
 import { TextField, Switch } from 'formik-material-ui';
 import * as Yup from 'yup';
-import { useContext, useState } from "react";
+import  { useContext, useState } from "react";
 import { DonationContext } from "../../../contexts/donationContext";
 import { Redirect } from "react-router-dom";
+import axios from 'axios';
 
 
 const ranges = [
@@ -31,23 +45,74 @@ enum PaymentType {
 }
 
 
+const api = axios.create({baseURL: 'https://charribackend.herokuapp.com/api/'});
+
+type IDialogProps = {
+    open: boolean;
+    title?: string;
+    description?: string;
+    okText?: string;
+    redirectURL?: string;
+}
 
 const MakeDonation = (): JSX.Element => {
     const { donation, addDonation } = useContext(DonationContext);
     const [ showPassword, setShowPassword ] = useState(false);
     const [ successful, setSuccessful ] = useState(false);
-    const donationValues = Object.values(donation);
+    const [ dialogProps, setDialogProps] = useState<IDialogProps>({
+        open: false,
+        title: '',
+        description: '',
+        okText: ''
+    });
+
+    const handleDialogOkClick = ()=> {
+        setDialogProps({open: false});
+        window.location.href = dialogProps.redirectURL || '';
+    }
 
     if(successful){
         return <Redirect to="/success" />
+    } else if (!(donation.amount)){
+        return <Redirect to="/foundation" />
     }
     
-    console.log(donation)
+    console.log(donation.amount);
     return (
         <>
             <div className="returning-customer">
                 <Language sx={{color: '#2F5349'}} /> Returning Customer? <a href="/" className="main-color bold">Click here to login</a>
             </div>
+
+
+            <Dialog
+                open={dialogProps.open}
+                onClose={()=> setDialogProps({open: false})}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">
+                    {/* {"Error occured while processing payment"} */}
+                    {dialogProps.title}
+                </DialogTitle>
+
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        <div>
+                            {dialogProps.description}
+                        </div>
+                    </DialogContentText>
+                </DialogContent>
+
+                <DialogActions>
+                    {/* <a {} href= {dialogProps.redirectURL}> */}
+                        <Button onClick={handleDialogOkClick}>
+                            {dialogProps.okText}
+                        </Button>
+                    {/* </a> */}
+                </DialogActions>
+            </Dialog>
+            
 
             <Formik
                 initialValues={{
@@ -56,7 +121,8 @@ const MakeDonation = (): JSX.Element => {
                     country: 'Nigeria',
                     firstname: '',
                     lastname: '',
-                    cardnumber: '',
+                    card_number: '',
+                    phone_number: '',
                     cvv: '',
                     expirydate: '',
                     rememberMe: false,
@@ -83,7 +149,7 @@ const MakeDonation = (): JSX.Element => {
                       .required('Required'),
                     country: Yup.string()
                       .required('Required'),
-                    cardnumber: Yup.string()
+                    card_number: Yup.string()
                       .max(19, 'Maximum 19 digits')
                       .required('Required'),
                     cvv: Yup.string()
@@ -91,21 +157,64 @@ const MakeDonation = (): JSX.Element => {
                       .min(3, 'Minimum 3 digits')
                       .max(4, 'Maximum 4 digits'),
                     expirydate: Yup.string()
+                      .matches(
+                        /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
+                        'Not a valid expiration date. Example: MM/YY'
+                      )
                       .required('Required')
                       .min(5, 'Format MM/YY')
-                      .max(5, 'Invalid format'),
+                      .max(5, 'Invalid format')
                     // comment: Yup.string()
                     //   .required('Required'),
                 })}
                 
 
                 onSubmit={(values, {setSubmitting}) => {
-                    setTimeout(() => {
+                    setSubmitting(true);
+
+                    const mapValues = {
+                        card_number: values.card_number.toString().replace(/\s/g,''),
+                        cvv: values.cvv,
+                        expiry_month: values?.expirydate?.split('/')[0], 
+                        expiry_year: values?.expirydate?.split('/')[1],
+                        amount: `${donation.amount}`,
+                        fullname: `${values.firstname} ${values.lastname}`,
+                        email: values.email,
+                        phone_number: values.phone_number,
+
+                    };
+
+                    console.log(JSON.stringify(mapValues));
+
+
+                    api.post('flutterwave/charge-card', mapValues)
+                    .then(response => {
                         setSubmitting(false);
-                        addDonation({amount: donationValues[0], donorName: values.firstname})
-                        setSuccessful(true);
-                        // alert(JSON.stringify(values, null, 2));
-                    }, 500);
+                        setDialogProps({open: true, title: response.data.data.message, description: `Charge has been initiated on your card, kindly proceed 
+                        to provide the OTP sent to your email '${response.data.data.data.customer.email}' to complete this transaction`, okText: 'Proceed', redirectURL: response.data.data.meta.authorization.redirect})
+
+                        localStorage.setItem('donorName', response.data.data.data.customer.name);
+                        // console.log(response)
+                    })
+                    .catch(error => {
+                        setSubmitting(false);
+
+                        // console.log(error.response.data);
+
+                        setDialogProps({open: true, title: "Error occured while processing payment", description: `We encountered an error while processing your payment,
+                        kindly check that your card details are correctly entered and try again.
+                        We apologize for any inconvenience this may have caused you.`, okText: 'OK'});
+                        
+                    })
+                    .finally(()=> {
+                        console.log(dialogProps)
+                    });
+
+                    // setTimeout(() => {
+                    //     addDonation({amount: donation.amount, donorName: values.firstname})
+                    //     setSuccessful(true);
+                    //     // alert(JSON.stringify(values, null, 2));
+                    // }, 500);
                 }}
             >
                 {({submitForm, setFieldValue, isSubmitting, values, touched, errors, handleChange}) => (
@@ -212,7 +321,7 @@ const MakeDonation = (): JSX.Element => {
                                         component={TextField}
                                         type="text"
                                         label="Phone no"
-                                        name="phone"
+                                        name="phone_number"
                                         variant="outlined"
                                         size="small"
                                     />
@@ -240,7 +349,7 @@ const MakeDonation = (): JSX.Element => {
                             </div>
 
                             <div className="donation-details main-color">
-                                <h2>Your Donation - ${Intl.NumberFormat().format(+donationValues[0])}</h2>
+                                <h2>Your Donation - ${Intl.NumberFormat().format(+donation.amount)}</h2>
                                 <div className="main-color">Donation Details</div>
 
                                 <div className="donation-details-box">
@@ -249,7 +358,7 @@ const MakeDonation = (): JSX.Element => {
                                             Donation Amount -
                                         </div>
                                         <div className="bold">
-                                            ${Intl.NumberFormat().format(+donationValues[0])}
+                                            ${Intl.NumberFormat().format(+donation.amount)}
                                         </div>
                                     </div>
                                     <div className="donation-details-item">
@@ -300,7 +409,7 @@ const MakeDonation = (): JSX.Element => {
                                 <Box sx={{marginBottom: '1.5rem'}}>
                                     <Field
                                         component={TextField}
-                                        name="cardnumber"
+                                        name="card_number"
                                         type="number"
                                         label="Card number"
                                         variant="outlined"

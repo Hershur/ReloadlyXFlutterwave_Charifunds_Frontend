@@ -243,7 +243,7 @@ const FoundationDonation = (): JSX.Element => {
 
                                 <Box sx={{margin: '2rem', display: 'flex', justifyContent: 'center'}}>
                                     <Link to="/donate">
-                                        <Button onClick={()=> addDonation({amount: amount, donorName: ''})} disabled={amount < 5} variant="contained" sx={{background: '#2F5349', padding: '1rem 5rem'}}>Confirm</Button>
+                                        <Button onClick={()=> addDonation({amount: `${amount}`, donorName: ''})} disabled={amount < 5} variant="contained" sx={{background: '#2F5349', padding: '1rem 5rem'}}>Confirm</Button>
                                     </Link>
                                 </Box>
 

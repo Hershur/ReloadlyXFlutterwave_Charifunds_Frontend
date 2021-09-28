@@ -1,13 +1,18 @@
 import { Language } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { useContext } from "react";
+import { Redirect } from "react-router-dom";
 import { DonationContext } from "../../../contexts/donationContext";
 import ButtonP from "../atoms/Button";
 
 const DonationSuccessful = (): JSX.Element => {
     const { donation } = useContext(DonationContext);
-    const donationValues = Object.values(donation);
+    const getDonorNameFromStorage = localStorage.getItem('donorName');
 
+    if(!(donation.donorName && donation.amount)){
+        return <Redirect to="/foundation" />
+    }
+    
     return (
         <>
             <div className="returning-customer">
@@ -16,7 +21,7 @@ const DonationSuccessful = (): JSX.Element => {
 
             <div className="donation-successful main-color">
                 <div>
-                    <h1>Dear Amazing {donationValues[1]},</h1>
+                    <h1>Dear Amazing {getDonorNameFromStorage},</h1>
 
                     <div>
                         Thank you for your donation to Hope for all foundation. 
