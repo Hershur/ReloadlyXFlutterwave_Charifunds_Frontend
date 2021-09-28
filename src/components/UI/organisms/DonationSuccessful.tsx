@@ -9,7 +9,7 @@ const DonationSuccessful = (): JSX.Element => {
     const { donation } = useContext(DonationContext);
     const getDonorNameFromStorage = localStorage.getItem('donorName');
 
-    if(!(donation.donorName && donation.amount)){
+    if(!getDonorNameFromStorage){
         return <Redirect to="/foundation" />
     }
     
