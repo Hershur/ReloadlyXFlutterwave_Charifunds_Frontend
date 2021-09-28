@@ -1,12 +1,9 @@
 import { Language } from "@mui/icons-material";
 import { Button } from "@mui/material";
-import { useContext } from "react";
 import { Redirect } from "react-router-dom";
-import { DonationContext } from "../../../contexts/donationContext";
 import ButtonP from "../atoms/Button";
 
 const DonationSuccessful = (): JSX.Element => {
-    const { donation } = useContext(DonationContext);
     const getDonorNameFromStorage = localStorage.getItem('donorName');
 
     if(!getDonorNameFromStorage){
