@@ -29,7 +29,10 @@ const FoundationDonation = (): JSX.Element => {
 
     const populateAmount = (amt: number)=> {
         setAmount(prevAmt => +(prevAmt) + amt);
-    }
+    };
+
+    localStorage.setItem('test', 'response.data.data.data.customer.name');
+
 
     const style = {
         position: 'absolute' as 'absolute',
@@ -218,6 +221,7 @@ const FoundationDonation = (): JSX.Element => {
                 </div>
 
             </div>
+            
 
             <Modal
                 aria-labelledby="transition-modal-title"

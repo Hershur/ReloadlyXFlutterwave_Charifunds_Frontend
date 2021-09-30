@@ -53,6 +53,7 @@ type IDialogProps = {
     description?: string;
     okText?: string;
     redirectURL?: string;
+    respClass?: string;
 }
 
 const MakeDonation = (): JSX.Element => {
@@ -68,7 +69,9 @@ const MakeDonation = (): JSX.Element => {
 
     const handleDialogOkClick = ()=> {
         setDialogProps({open: false});
-        window.location.href = dialogProps.redirectURL || '';
+        if(dialogProps.redirectURL) {
+            window.location.href = dialogProps.redirectURL || '';
+        }
     }
 
     if(successful){
@@ -87,11 +90,11 @@ const MakeDonation = (): JSX.Element => {
 
             <Dialog
                 open={dialogProps.open}
-                onClose={()=> setDialogProps({open: false})}
+                onClose={handleDialogOkClick}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">
+                <DialogTitle className={dialogProps.respClass} id="alert-dialog-title">
                     {/* {"Error occured while processing payment"} */}
                     {dialogProps.title}
                 </DialogTitle>
@@ -145,6 +148,8 @@ const MakeDonation = (): JSX.Element => {
                       .required('Required'),
                     firstname: Yup.string()
                       .required('Required'),
+                    phone_number: Yup.string()
+                      .required('Required'),
                     lastname: Yup.string()
                       .required('Required'),
                     country: Yup.string()
@@ -193,7 +198,7 @@ const MakeDonation = (): JSX.Element => {
                         setDialogProps({open: true, title: response.data.data.message, description: `Charge has been initiated on your card, kindly proceed 
                         to provide the OTP sent to your email '${response.data.data.data.customer.email}' to complete this transaction`, okText: 'Proceed', redirectURL: response.data.data.meta.authorization.redirect})
 
-                        localStorage.setItem('donorName', response.data.data.data.customer.name);
+                        localStorage.setItem('donorName', mapValues?.fullname);
                         // console.log(response)
                     })
                     .catch(error => {
@@ -203,7 +208,7 @@ const MakeDonation = (): JSX.Element => {
 
                         setDialogProps({open: true, title: "Error occured while processing payment", description: `We encountered an error while processing your payment,
                         kindly check that your card details are correctly entered and try again.
-                        We apologize for any inconvenience this may have caused you.`, okText: 'OK'});
+                        We apologize for any inconvenience this may have caused you.`, okText: 'OK', respClass: 'error-response'});
                         
                     })
                     .finally(()=> {
