@@ -7,3 +7,27 @@
         padding: 1rem;
     }
 }
+
+@media (min-width: 1100px) and (max-width: 1200px) {
+    .page-nav span {
+        padding: 1rem;
+    }
+
+}
+
+@media (max-width: 1099px) {
+    .page-nav {
+        display: none;
+    }
+
+    .page-nav-mobile {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        padding: 1rem;
+
+        & span {
+            padding: 1rem;
+        }
+    }
+}

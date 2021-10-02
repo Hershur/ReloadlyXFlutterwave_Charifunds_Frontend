@@ -247,6 +247,8 @@
 
 .testimonial-grid {
     padding-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
 }
 
 .testimonial-name {
@@ -271,9 +273,9 @@
     border: 0.5px solid #2F5349;
     padding: 0.7rem;
     width: 90%;
-    margin-inline: auto;
+    margin: 0 auto 0 auto;
     box-sizing: border-box;
-    margin-block: 1rem;
+    margin: 1rem 0 1rem 0;
     display: flex;
     gap: 0.5rem;
     border-radius: 5px;
@@ -329,4 +331,77 @@
 
 .error-response {
     color: red !important;
+}
+
+.menu-icon-box {
+    display: none;
+}
+
+.donations-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+}
+
+@media (max-width: 1099px) {
+    .menu-icon-box {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+}
+
+@media (max-width: 799px) {
+    .page-outline {
+        display: block;
+    }
+
+    .page-outline-right {
+        display: none;
+    }
+
+    .page-outline > div {
+        padding: 1.5rem 1rem 1.5rem 1.5rem;
+    }
+
+    .causes-box {
+        height: auto;
+    }
+
+    .path-svg, .path-svg2, .path-svg3 {
+        display: none;
+    }
+
+    .donors-companies {
+        display: block;
+    } 
+    
+    .register-form {
+        flex-wrap: wrap;
+    }
+}
+
+
+@media (max-width: 699px) {
+    .causes-box {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .donations-group {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .testimonial-grid {
+        display: block;
+    }
+
+    .footer {
+        grid-template-columns: 1.8fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 450px) {
+    .footer {
+        grid-template-columns: 1.8fr 1fr;
+    }
 }

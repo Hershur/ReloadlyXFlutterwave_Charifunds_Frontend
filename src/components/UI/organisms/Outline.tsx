@@ -1,22 +1,35 @@
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { Button } from '@mui/material';
+import { Button, Drawer } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ButtonP from "../atoms/Button";
 import Logo from "../atoms/Logo";
 import HeaderNav from '../molecules/HeaderNav';
+import HeaderNavMobile from '../molecules/HeaderNavMobile';
+import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from 'react';
 
 const Outline = (): JSX.Element => {
+    const [openDrawer, setOpenDrawer] = useState(false);
+
     return (
         <div className="page-outline">
             <div className="page-outline-left">
-                <Logo />
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <Logo />
+
+                    <div className="menu-icon-box">
+                        <Button onClick={()=> setOpenDrawer(!openDrawer)}>
+                            <MenuIcon sx={{color: '#2f5349', fontSize: '2.5rem'}} />
+                        </Button>
+                    </div>
+                </div>
 
                 <div className="page-outline-details">
                     Fundraising for the Charities and causes you care about
                 </div>
 
                 <div className="page-outline-details-sub">
-                    An impact driven global non profit that puts compassion inton action;
+                    An impact driven global non profit that puts compassion into action;
                     uplifting and uniting communities locally and globally: online and offline.
                 </div>
 
@@ -31,11 +44,19 @@ const Outline = (): JSX.Element => {
                 </div>
 
             </div>
+
+            <Drawer
+                anchor='right'
+                open={openDrawer}
+                onClose={()=> setOpenDrawer(!openDrawer)}
+            >
+                <HeaderNavMobile isLandingPage  />
+            </Drawer>
+
             <div className="page-outline-right">
                 <HeaderNav isLandingPage />
-                
-                <div className="page-outline-image">
 
+                <div className="page-outline-image">
                 </div>
             </div>
         </div>

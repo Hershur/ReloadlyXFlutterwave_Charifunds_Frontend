@@ -10,7 +10,7 @@ const Testimonials = (): JSX.Element => {
                     </h1>
                 </div>
 
-                <div className="testimonial-grid" style={{display: 'grid', gridTemplateColumns: '1.5fr 1fr'}}>
+                <div className="testimonial-grid">
                     <div>
                         <div className="testimonial-img-box">  
                             <div className="testimonial-img"></div>

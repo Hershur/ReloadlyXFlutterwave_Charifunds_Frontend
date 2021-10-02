@@ -21,7 +21,7 @@ const Donations = (): JSX.Element => {
                 </div>
             </div>
 
-            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '3rem'}}>
+            <div className="donations-group">
                 <div>
                     <div style={{gap: '2rem'}}>  
                         <div className="img-health"></div>

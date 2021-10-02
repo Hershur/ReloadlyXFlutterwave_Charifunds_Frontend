@@ -27,7 +27,7 @@ const DonationSuccessful = (): JSX.Element => {
     useEffect(() => {
         setTimeout(()=> {
             
-            const duration = 15 * 1000;
+            const duration = 20 * 1000;
             const animationEnd = Date.now() + duration;
             const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
@@ -76,8 +76,8 @@ const DonationSuccessful = (): JSX.Element => {
                     <Box sx={style}>
                         <Typography className="bold main-color" sx={{textAlign: 'justify'}}>
                             Thank you for your generous donation, you've been gifted airtime
-                            worth {topUp?.data?.deliveredAmountCurrencyCode} {topUp?.data.requestedAmount} 
-                            on your {topUp?.data.operatorName} line {topUp?.data.recipientPhone}
+                            worth {topUp?.data?.deliveredAmountCurrencyCode} {topUp?.data.requestedAmount} on 
+                             your {topUp?.data.operatorName} line {topUp?.data.recipientPhone}
                         </Typography>
 
                         <Box sx={{margin: '2rem', display: 'flex', justifyContent: 'center'}}>
