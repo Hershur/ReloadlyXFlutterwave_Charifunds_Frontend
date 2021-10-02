@@ -76,8 +76,8 @@ const DonationSuccessful = (): JSX.Element => {
                     <Box sx={style}>
                         <Typography className="bold main-color" sx={{textAlign: 'justify'}}>
                             Thank you for your generous donation, you've been gifted airtime
-                            worth {topUp?.deliveredAmountCurrencyCode} {topUp?.requestedAmount} 
-                            on your {topUp?.operatorName} line {topUp?.recipientPhone}
+                            worth {topUp?.data?.deliveredAmountCurrencyCode} {topUp?.data.requestedAmount} 
+                            on your {topUp?.data.operatorName} line {topUp?.data.recipientPhone}
                         </Typography>
 
                         <Box sx={{margin: '2rem', display: 'flex', justifyContent: 'center'}}>
