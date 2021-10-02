@@ -67,10 +67,10 @@ const FoundationDonation = (): JSX.Element => {
                             <TabPanel {...({className:"main-color"})}  value={value} index={0}>
                                 Hope for all Foundation (NWACS) is a private, 
                                 non-profit organization that provides 24-hour residential, 
-                                emergency triage care for children throughout Arkansas who are 
+                                emergency triage care for children throughout Nigeria who are 
                                 victims of abandonment, abuse or neglect.With support from the 
                                 Walton Family Foundation, Rogue Trails LLC recently completed 
-                                trail construction at the Northwest Arkansas Children’s Shelter that 
+                                trail construction at the Northwest Nigeria Children’s Shelter that 
                                 includes accessible mountain bike trails and a skills course for children 
                                 who find themselves in need of a safe haven.The NWACS Staff has identified a 
                                 significant need for quality, teen and adult sized mountain bikes for their older 
