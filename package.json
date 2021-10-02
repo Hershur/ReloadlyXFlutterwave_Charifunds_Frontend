@@ -16,6 +16,7 @@
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
     "axios": "^0.21.4",
+    "canvas-confetti": "^1.4.0",
     "formik": "^2.2.9",
     "formik-material-ui": "^4.0.0-alpha.1",
     "react": "^17.0.2",
@@ -51,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.4.2",
     "@types/react-router-dom": "^5.1.9",
     "node-sass": "^6.0.1"
   }

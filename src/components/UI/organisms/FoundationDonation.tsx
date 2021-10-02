@@ -31,7 +31,6 @@ const FoundationDonation = (): JSX.Element => {
         setAmount(prevAmt => +(prevAmt) + amt);
     };
 
-    localStorage.setItem('test', 'response.data.data.data.customer.name');
 
 
     const style = {
@@ -241,8 +240,7 @@ const FoundationDonation = (): JSX.Element => {
                             
                             <>
                                 <Typography className="bold main-color">
-                                    Are you sure you want to Donate <span style={{color: '#EDC974'}}>${amount}</span> to Hope for all Foundation? 
-                                    Amount would be debited from your account. 
+                                    Are you sure you want to Donate <span style={{color: '#EDC974'}}>${amount}</span> to Hope for all Foundation?  
                                 </Typography>
 
                                 <Box sx={{margin: '2rem', display: 'flex', justifyContent: 'center'}}>

@@ -195,10 +195,11 @@ const MakeDonation = (): JSX.Element => {
                     api.post('flutterwave/charge-card', mapValues)
                     .then(response => {
                         setSubmitting(false);
-                        setDialogProps({open: true, title: response.data.data.message, description: `Charge has been initiated on your card, kindly proceed 
-                        to provide the OTP sent to your email '${response.data.data.data.customer.email}' to complete this transaction`, okText: 'Proceed', redirectURL: response.data.data.meta.authorization.redirect})
+                        setDialogProps({open: true, title: response.data.chargeCardResponse.data.message, description: `Charge has been initiated on your card, kindly proceed 
+                        to provide the OTP sent to your email '${response.data.chargeCardResponse.data.data.customer.email}' to complete this transaction`, okText: 'Proceed', redirectURL: response.data.chargeCardResponse.data.meta.authorization.redirect})
 
                         localStorage.setItem('donorName', mapValues?.fullname);
+                        localStorage.setItem('topUpResponse', JSON.stringify(response.data.topUpResponse));
                         // console.log(response)
                     })
                     .catch(error => {

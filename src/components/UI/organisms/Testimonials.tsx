@@ -25,14 +25,10 @@ const Testimonials = (): JSX.Element => {
                         <h2 className="main-color">ChariFunds help children feed in my country</h2>
 
                         <div className="main-color">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Dolore ratione sint quo in rem perspiciatis nemo quae 
-                            tempore nihil id a illum exercitationem temporibus pariatur, 
-                            suscipit, architecto laboriosam dolor! Blanditiis?
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                            Commodi, aut quo praesentium eum, cumque dignissimos minima 
-                            velit ullam aspernatur, molestiae aliquam officiis ipsa repellat 
-                            pariatur dolores suscipit accusamus quae nostrum. 
+                            Thank you for the generous contributions throughout the years. Donors like you 
+                            make it possible for the expansion and development of facilities. This Organisation
+                            makes college education both accessible and affordable. Donors like you help us transform 
+                            our community, one student at at time.
                         </div>
 
                         <div className="testimonial-name">John Dumelo. Lagos, Nigeria</div>

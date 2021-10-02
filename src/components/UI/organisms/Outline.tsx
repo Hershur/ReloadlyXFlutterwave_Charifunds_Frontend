@@ -16,8 +16,8 @@ const Outline = (): JSX.Element => {
                 </div>
 
                 <div className="page-outline-details-sub">
-                    We've spent the last 5 years helping over 25,000 teams
-                    just like yourself to create and sustain successful online support.
+                    An impact driven global non profit that puts compassion inton action;
+                    uplifting and uniting communities locally and globally: online and offline.
                 </div>
 
                 <div style={{marginBottom: '4rem'}}>

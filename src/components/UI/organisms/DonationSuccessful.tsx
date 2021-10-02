@@ -1,10 +1,59 @@
 import { Language } from "@mui/icons-material";
-import { Button } from "@mui/material";
+import { Button, Modal, Box, Zoom, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import ButtonP from "../atoms/Button";
+import confetti from "canvas-confetti";
 
 const DonationSuccessful = (): JSX.Element => {
+    const [open, setOpen] = useState(false);
     const getDonorNameFromStorage = localStorage.getItem('donorName');
+    const getTopUpFromStorage = localStorage.getItem('topUpResponse');
+    const topUp = JSON.parse(getTopUpFromStorage || '{}');
+
+
+    const style = {
+        position: 'absolute' as 'absolute',
+        top: '30%',
+        left: '30%',
+        transform: 'translate(-50%, -50%)',
+        width: 500,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+    };
+
+    useEffect(() => {
+        setTimeout(()=> {
+            
+            const duration = 15 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min: number, max: number) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const interval: ReturnType<typeof setInterval> = setInterval(function() {
+                const timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                var particleCount = 50 * (timeLeft / duration);
+                // since particles fall down, start a bit higher than random
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+
+
+            setOpen(true);
+
+        }, 2500)
+    }, []);
+
 
     if(!getDonorNameFromStorage){
         return <Redirect to="/foundation" />
@@ -12,6 +61,33 @@ const DonationSuccessful = (): JSX.Element => {
     
     return (
         <>
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                open={open}
+                onClose={()=> setOpen(false)}
+                // closeAfterTransition
+                // BackdropComponent={Backdrop}
+                // BackdropProps={{
+                //     timeout: 500,
+                // }}
+            >
+                <Zoom in={open} style={{ transitionDelay: true ? '500ms' : '0ms', border: 'none' }}>
+                    <Box sx={style}>
+                        <Typography className="bold main-color" sx={{textAlign: 'justify'}}>
+                            Thank you for your generous donation, you've been gifted airtime
+                            worth {topUp?.deliveredAmountCurrencyCode} {topUp?.requestedAmount} 
+                            on your {topUp?.operatorName} line {topUp?.recipientPhone}
+                        </Typography>
+
+                        <Box sx={{margin: '2rem', display: 'flex', justifyContent: 'center'}}>
+                            <Button onClick={()=> setOpen(false)}  variant="contained" sx={{border: '2px solid #EDC974', background: '#ffffff', color: '#2F5349', padding: '1rem 5rem'}}>Ok</Button>
+                        </Box>
+                    </Box>
+                </Zoom>
+
+            </Modal>
+
             <div className="returning-customer">
                 <Language sx={{color: '#2F5349'}} /> <span className="main-color bold">Donation succesful!!!</span>
             </div>
