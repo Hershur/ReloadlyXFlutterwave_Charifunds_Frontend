@@ -231,7 +231,7 @@ const MakeDonation = (): JSX.Element => {
                                     <Field
                                         component={TextField}
                                         type="text"
-                                        label="First name"
+                                        label="First name *"
                                         name="firstname"
                                         variant="outlined"
                                         size="small"
@@ -240,7 +240,7 @@ const MakeDonation = (): JSX.Element => {
                                     <Field
                                         component={TextField}
                                         type="text"
-                                        label="Last name"
+                                        label="Last name *"
                                         name="lastname"
                                         variant="outlined"
                                         size="small"
@@ -323,7 +323,7 @@ const MakeDonation = (): JSX.Element => {
                                     <Field
                                         component={TextField}
                                         type="text"
-                                        label="Phone no"
+                                        label="Phone number *"
                                         name="phone_number"
                                         variant="outlined"
                                         size="small"
@@ -335,7 +335,7 @@ const MakeDonation = (): JSX.Element => {
                                         component={TextField}
                                         name="email"
                                         type="text"
-                                        label="Email address"
+                                        label="Email address *"
                                         variant="outlined"
                                         size="small"
                                         fullWidth
@@ -414,7 +414,7 @@ const MakeDonation = (): JSX.Element => {
                                         component={TextField}
                                         name="card_number"
                                         type="number"
-                                        label="Card number"
+                                        label="Card number *"
                                         variant="outlined"
                                         size="small"
                                         fullWidth
@@ -425,7 +425,7 @@ const MakeDonation = (): JSX.Element => {
                                     <Field
                                         component={TextField}
                                         type="text"
-                                        label="Expiry date"
+                                        label="Expiry date *"
                                         name="expirydate"
                                         variant="outlined"
                                         size="small"
@@ -438,7 +438,7 @@ const MakeDonation = (): JSX.Element => {
                                     <Field
                                         component={TextField}
                                         type={showPassword ? 'text' : 'password'}
-                                        label="CVV"
+                                        label="CVV *"
                                         name="cvv"
                                         variant="outlined"
                                         size="small"
