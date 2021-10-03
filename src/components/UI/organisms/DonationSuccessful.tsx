@@ -1,5 +1,5 @@
 import { Language } from "@mui/icons-material";
-import { Button, Modal, Box, Zoom, Typography } from "@mui/material";
+import { Button, Modal, Box, Typography, Fade } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import ButtonP from "../atoms/Button";
@@ -14,10 +14,10 @@ const DonationSuccessful = (): JSX.Element => {
 
     const style = {
         position: 'absolute' as 'absolute',
-        top: '30%',
-        left: '30%',
+        top: '50%',
+        left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 500,
+        width: '50vw',
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
@@ -72,19 +72,19 @@ const DonationSuccessful = (): JSX.Element => {
                 //     timeout: 500,
                 // }}
             >
-                <Zoom in={open} style={{ transitionDelay: true ? '500ms' : '0ms', border: 'none' }}>
+                <Fade in={open} style={{ transitionDelay: true ? '500ms' : '0ms', border: 'none' }}>
                     <Box sx={style}>
                         <Typography className="bold main-color" sx={{textAlign: 'justify'}}>
                             Thank you for your generous donation, you've been gifted airtime
-                            worth {topUp?.data?.deliveredAmountCurrencyCode} {topUp?.data.requestedAmount} on 
-                             your {topUp?.data.operatorName} line {topUp?.data.recipientPhone}
+                            worth {topUp?.data?.deliveredAmountCurrencyCode} {topUp?.data?.requestedAmount} on 
+                             your {topUp?.data?.operatorName} line {topUp?.data?.recipientPhone}
                         </Typography>
 
                         <Box sx={{margin: '2rem', display: 'flex', justifyContent: 'center'}}>
                             <Button onClick={()=> setOpen(false)}  variant="contained" sx={{border: '2px solid #EDC974', background: '#ffffff', color: '#2F5349', padding: '1rem 5rem'}}>Ok</Button>
                         </Box>
                     </Box>
-                </Zoom>
+                </Fade>
 
             </Modal>
 
@@ -120,7 +120,7 @@ const DonationSuccessful = (): JSX.Element => {
                 </div>
                 
 
-                <div className="thank-you-image">
+                <div className="thank-you-image hide-thank-you">
                     
                 </div>
             </div>

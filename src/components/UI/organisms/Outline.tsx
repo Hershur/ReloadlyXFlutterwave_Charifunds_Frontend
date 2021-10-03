@@ -10,7 +10,8 @@ import { useState } from 'react';
 
 const Outline = (): JSX.Element => {
     const [openDrawer, setOpenDrawer] = useState(false);
-
+    localStorage.clear();
+    
     return (
         <div className="page-outline">
             <div className="page-outline-left">

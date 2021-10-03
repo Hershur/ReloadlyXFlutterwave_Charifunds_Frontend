@@ -59,7 +59,6 @@ type IDialogProps = {
 const MakeDonation = (): JSX.Element => {
     const { donation } = useContext(DonationContext);
     const [ showPassword, setShowPassword ] = useState(false);
-    const [ successful ] = useState(false);
     const [ dialogProps, setDialogProps] = useState<IDialogProps>({
         open: false,
         title: '',
@@ -74,13 +73,11 @@ const MakeDonation = (): JSX.Element => {
         }
     }
 
-    if(successful){
-        return <Redirect to="/success" />
-    } else if (!(donation.amount)){
+    if (!(donation.amount)){
         return <Redirect to="/foundation" />
     }
     
-    console.log(donation.amount);
+    // console.log(donation.amount);
     return (
         <>
             <div className="returning-customer">
@@ -225,12 +222,12 @@ const MakeDonation = (): JSX.Element => {
             >
                 {({submitForm, setFieldValue, isSubmitting, values, touched, errors, handleChange}) => (
                     <Form key="1">
-                        <div style={{display: 'grid', gap: '2rem', gridTemplateColumns: '1.5fr 1fr', width: '90%', margin: 'auto'}}>
+                        <div className="donation-form">
 
                             <div className="billing-details">
                                 <h2 className="main-color">Billing Details</h2>
 
-                                <Box sx={{marginBottom: '1.5rem', display: 'grid', gap: '1rem', gridTemplateColumns: '1fr 1fr'}}>
+                                <Box className="group-donation-fields">
                                     <Field
                                         component={TextField}
                                         type="text"
@@ -288,7 +285,7 @@ const MakeDonation = (): JSX.Element => {
                                 </Box>
 
 
-                                <Box sx={{marginBottom: '1.5rem', display: 'grid', gap: '1rem', gridTemplateColumns: '1fr 1fr'}}>
+                                <Box className="group-donation-fields">
                                     <Field
                                         component={TextField}
                                         type="text"
@@ -314,7 +311,7 @@ const MakeDonation = (): JSX.Element => {
                                     </Field> */}
                                 </Box>
 
-                                <Box sx={{marginBottom: '1.5rem', display: 'grid', gap: '1rem', gridTemplateColumns: '1fr 1fr'}}>
+                                <Box className="group-donation-fields">
                                     <Field
                                         component={TextField}
                                         type="text"
@@ -424,7 +421,7 @@ const MakeDonation = (): JSX.Element => {
                                     />
                                 </Box>
 
-                                <Box sx={{marginBottom: '1.5rem', display: 'grid', gap: '1rem', gridTemplateColumns: '1fr 1fr'}}>
+                                <Box className="group-donation-fields">
                                     <Field
                                         component={TextField}
                                         type="text"
