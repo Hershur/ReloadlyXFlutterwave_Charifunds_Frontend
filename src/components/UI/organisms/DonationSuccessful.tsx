@@ -87,6 +87,12 @@ const DonationSuccessful = (): JSX.Element => {
                         <Box sx={{margin: '2rem', display: 'flex', justifyContent: 'center'}}>
                             <Button onClick={()=> setOpen(false)}  variant="contained" sx={{border: '2px solid #EDC974', background: '#ffffff', color: '#2F5349', padding: '1rem 5rem'}}>Ok</Button>
                         </Box>
+                        <Box sx={{margin: '2rem', display: 'flex', justifyContent: 'center'}}>
+                            <Typography sx={{bgcolor: '#EDC974', p: 2, color: '#ffffff'}}>
+                                Powered by
+                                <img src="https://cdn.reloadly.com/assets-v2/images/reloadly-logo.svg" alt="reloadly"></img>
+                            </Typography>
+                        </Box>
                     </Box>
                 </Fade>
 

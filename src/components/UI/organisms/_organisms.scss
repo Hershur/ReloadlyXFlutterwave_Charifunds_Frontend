@@ -411,6 +411,10 @@
         display: none;
     }
 
+    .path-svg, .path-svg2, .path-svg3 {
+        display: none;
+    }
+
 }
 
 @media (max-width: 899px) {
@@ -436,10 +440,6 @@
 
     .causes-box {
         height: auto;
-    }
-
-    .path-svg, .path-svg2, .path-svg3 {
-        display: none;
     }
 
     .donors-companies {

@@ -10,7 +10,8 @@ import {
     DialogActions,
     DialogTitle,
     DialogContent,
-    DialogContentText 
+    DialogContentText, 
+    Typography
 } from "@mui/material";
 import { Language, Visibility, VisibilityOff } from '@mui/icons-material';
 import {
@@ -26,6 +27,7 @@ import  { useContext, useState } from "react";
 import { DonationContext } from "../../../contexts/donationContext";
 import { Redirect } from "react-router-dom";
 import axios from 'axios';
+import FlutterwaveLogo from "../atoms/FlutterwaveLogo";
 
 
 const ranges = [
@@ -111,6 +113,13 @@ const MakeDonation = (): JSX.Element => {
                         </Button>
                     {/* </a> */}
                 </DialogActions>
+
+                <Box sx={{margin: '2rem', display: 'flex', justifyContent: 'center'}}>
+                    <Typography sx={{bgcolor: '#2f5349', p: 2, color: '#ffffff'}}>
+                        Powered by
+                        <FlutterwaveLogo />
+                    </Typography>
+                </Box>
             </Dialog>
             
 

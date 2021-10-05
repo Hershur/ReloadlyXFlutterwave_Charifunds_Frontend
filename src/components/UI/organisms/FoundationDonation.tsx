@@ -58,8 +58,14 @@ const FoundationDonation = (): JSX.Element => {
                         <h3 className="bold no-margin main-color">Children Education Needs For Change The World Project</h3>
                         <div className="foundation-description-tab">
                             <Box sx={{ width: '100%' }}>
-                                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                                <Box sx={{maxWidth: 500, borderBottom: 1, borderColor: 'divider' }}>
+                                    <Tabs 
+                                        value={value} 
+                                        onChange={handleChange} 
+                                        variant="scrollable"
+                                        scrollButtons="auto"
+                                        aria-label="scrollable auto tabs example"
+                                    >
                                         <Tab label="Description" sx={{color: "#2F5349", opacity: '0.5', '&.Mui-selected': {color: "#2F5349", opacity: '1', fontWeight: 700}}} />
                                         <Tab label="Events" sx={{color: "#2F5349", opacity: '0.5', '&.Mui-selected': {color: "#2F5349", opacity: '1', fontWeight: 700}}}  />
                                         <Tab label="Videos" sx={{color: "#2F5349", opacity: '0.5', '&.Mui-selected': {color: "#2F5349", opacity: '1', fontWeight: 700}}} />
@@ -135,11 +141,11 @@ const FoundationDonation = (): JSX.Element => {
 
                     <div>
 
-                        <div className="hide-donate" onClick={handleModalOpen}>
+                        <div  onClick={handleModalOpen}>
                             <ButtonP  text="Donate" textStyle={{width: '100%', cursor: 'pointer', background: '#EDC974', fontSize: '18px', fontWeight: '800', paddingBlock: '0.8vw', color: '#2F5349', border: 'none'}} />
                         </div>
                         <br/>
-                        <div className="hide-share">
+                        <div >
                             <Link to="/foundation">
                                 <ButtonP text="Share" textStyle={{width: '100%', cursor: 'pointer', background: '#fff', fontSize: '18px', fontWeight: '800', paddingBlock: '0.8vw', color: '#EDC974', border: '2px solid #EDC974'}} />
                             </Link>
